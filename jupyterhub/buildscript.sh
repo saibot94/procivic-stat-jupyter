@@ -18,4 +18,5 @@ function createUsers(){
 }
 
 createUsers
+echo "Done creating users... installing Jupyter notebooks"
 doInstall
