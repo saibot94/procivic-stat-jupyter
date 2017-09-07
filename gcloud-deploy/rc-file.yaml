@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: szeged-jupyterhub-workshop
+  name: szeged-jupyterhub-rc
 spec:
   replicas: 1
   selector:
