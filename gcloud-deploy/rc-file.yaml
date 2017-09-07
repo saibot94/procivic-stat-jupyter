@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: jhub
-          image: eu.gcr.io/jupyterhub-szeged/final-image
+          image: saibot94/jupyterhub-szeged
           ports:
             - containerPort: 8000
     

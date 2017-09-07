@@ -12,7 +12,7 @@ function setupNbGrader() {
 function doInstall() {
     apt-get update && \
         apt-get install sudo nano
-    conda install jupyter 
+    conda install jupyter matplotlib numpy scikit-learn
     conda install -c conda-forge nbgrader
     jupyter nbextension install --sys-prefix --py nbgrader --overwrite
     jupyter nbextension enable --sys-prefix --py nbgrader
@@ -37,7 +37,7 @@ function createUsers(){
         echo newuser$i:1234 | chpasswd
 
         mkdir -p /home/newuser$i/.jupyter/
-        cp /opt/hello.ipynb /home/newuser$i
+        cp -R /opt/notebooks/* /home/newuser$i/
         cp /opt/.bashrc /home/newuser$i
         cp /opt/nbgrader_config.py /home/newuser$i/.jupyter/
         chown -hR newuser$i:newuser$i /home/newuser$i
@@ -48,7 +48,9 @@ function createUsers(){
         echo teacher:1234 | chpasswd
         adduser teacher sudo
         # copy files for the teacher 
-        cp /opt/.bashrc /home/teacer
+        cp /opt/.bashrc /home/teacher
+        mkdir -p /home/teacher/.jupyter/
+        cp -R /opt/notebooks/* /home/teacher/
         cp /opt/nbgrader_config.py /home/teacher/.jupyter/
         chown -hR teacher:teacher /home/teacher
         echo "Created the teacher account"
