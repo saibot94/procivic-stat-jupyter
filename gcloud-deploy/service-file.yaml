@@ -5,6 +5,7 @@ metadata:
     name: szeged-jupyterhub-service
   name: szeged-jupyterhub-service
 spec:
+  type: LoadBalancer
   ports:
     - port: 80
       targetPort: 8000
