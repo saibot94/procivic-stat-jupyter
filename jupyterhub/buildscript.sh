@@ -12,7 +12,7 @@ function setupNbGrader() {
 function doInstall() {
     apt-get update && \
         apt-get install sudo nano
-    conda install jupyter matplotlib numpy scikit-learn
+    conda install jupyter matplotlib numpy scikit-learn pandas
     conda install -c conda-forge nbgrader
     jupyter nbextension install --sys-prefix --py nbgrader --overwrite
     jupyter nbextension enable --sys-prefix --py nbgrader
